@@ -22,9 +22,31 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Candidate App"),
       ),
-      body: Container(
-        child: Text("Hi flutter"),
-        ),
+      body: Center(
+        child: Container(
+            padding: const EdgeInsets.all(8),
+            width: 100,
+            height: 100,
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+              color: Colors.blueGrey,
+              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(colors: [
+                Colors.pink,
+                Colors.yellow,
+              ]),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 10,
+                ),
+              ]),
+            child: Text("I am a box",style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),),
+          ),
+      ),
     );
   }
 }
