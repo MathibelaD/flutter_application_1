@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import "package:flutter/widgets.dart";
 import 'package:flutter/material.dart';
 import "package:flutter/cupertino.dart";
@@ -18,46 +20,59 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Scaffold provides the entire structure
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Candidate App"),
-        ),
-        body: Container(
-          height: 500,
-          color: Colors.teal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+      backgroundColor: Color.fromARGB(255, 6, 41, 46),
+      appBar: AppBar(
+        title: Text("Candidate App"),
+      ),
+      body: Center(
+        child: Card(
+          child: Column(
             children: <Widget>[
-            Container(
-          padding: const EdgeInsets.all(8),
-          width: 100,
-          height: 100,
-          color: Colors.blueGrey,
-          alignment: Alignment.centerLeft,
+              Image.asset(
+                "assets/d.jpg",
+                height: 420,
+                width: 380,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Mathibela Dineo"),
+              accountEmail: Text("mathibeladineo@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://images.unsplash.com/photo-1599229526921-4f29d42b0b41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0ZXJmcm9udHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"),
+              ),
             ),
-             Container(
-          padding: const EdgeInsets.all(8),
-          width: 100,
-          height: 100,
-          color: Colors.blueGrey,
-          alignment: Alignment.centerLeft,
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Mathibela Dineo"),
+              subtitle: Text("Student"),
+              trailing: Icon(Icons.edit),
+              onTap: () {},
             ),
-             Container(
-          padding: const EdgeInsets.all(8),
-          width: 100,
-          height: 100,
-          color: Colors.blueGrey,
-          alignment: Alignment.centerLeft,
-            ),
-             Container(
-          padding: const EdgeInsets.all(8),
-          width: 100,
-          height: 100,
-          color: Colors.blueGrey,
-          alignment: Alignment.centerLeft,
-            ),
-          ]),
-        ));
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Email"),
+              subtitle: Text("mathibeladineo@gmail.com"),
+              trailing: Icon(Icons.edit),
+              onTap: () {},
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
   }
 }
